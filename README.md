@@ -1,4 +1,4 @@
-# Server
+# Layerhub API
 
 Backend application for design editor. It provides Rest Endpoints for working with templates: Create, Update, Delete, Download, etc.
 
