@@ -1,5 +1,5 @@
 {
-  "name": "@layerhub-io/api",
+  "name": "@layerhub-io/layerhub-api",
   "version": "1.0.0",
   "main": "index.js",
   "author": "chloe.bm",
@@ -25,8 +25,6 @@
     "aws-sdk": "^2.1120.0",
     "axios": "^0.23.0",
     "bcryptjs": "^2.4.3",
-    "canvas": "^2.9.1",
-    "canvas-5-polyfill": "^0.1.5",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.3",
