@@ -1,15 +1,19 @@
-FROM node:18-slim
-
-WORKDIR /usr/src/app
-
+FROM node:18-alpine as builder
+RUN npm i pnpm --location global
+WORKDIR /app
 COPY . .
-
-ENV NODE_OPTIONS --max-old-space-size=4096
-
-RUN npm install -g pnpm
-
-RUN pnpm install
-
+RUN pnpm i
 RUN pnpm build
 
-CMD [ "pnpm", "start" ]
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules/ ./node_modules/
+COPY --from=builder /app/dist/ ./dist/
+COPY --from=builder /app/.env ./
+
+# ENV NODE_ENV "production"
+
+CMD [ "node", "dist/src/main.js"]
