@@ -17,10 +17,9 @@ class DesignsHandler {
   }
 
   public async list(request: Request, response: Response) {
-    const user = request.user;
     const input = LIST_DESIGNS_REQUEST.parse(request.query);
     const payload = Object.assign({}, input, {
-      userId: user?.id,
+      userId: 'EDITOR',
       published: false
     });
     const designs = await this.designsService.findMany(payload);

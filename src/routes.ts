@@ -23,11 +23,7 @@ const setupRoutes = ({
     checkJwt,
     handlers.designs.create.bind(handlers.designs)
   );
-  router.get(
-    '/designs',
-    checkJwt,
-    handlers.designs.list.bind(handlers.designs)
-  );
+  router.get('/designs', handlers.designs.list.bind(handlers.designs));
 
   return router;
 };
