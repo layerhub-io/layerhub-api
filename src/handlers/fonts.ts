@@ -33,7 +33,7 @@ class FontsHandler {
   public async list(request: Request, response: Response) {
     const input = LIST_FONTS_REQUEST.parse(request.query);
     const fonts = await this.fontsService.findMany({ userId: 'EDITOR' });
-    response.json(fonts);
+    response.json({ fonts });
   }
 }
 
